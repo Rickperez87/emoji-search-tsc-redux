@@ -1,30 +1,22 @@
-import React, { PureComponent } from "react";
+import React, { useState } from "react";
 import Header from "../Header";
 import SearchInput from "../Searchinput";
 import EmojiResults from "../EmojiResults";
 import filterEmoji from "../../helpers/filterEmoji";
 
-export default class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filteredEmoji: filterEmoji("", 20),
-    };
-  }
+const App = () => {
+  const [filteredEmoji, setFilteredEmoji] = useState(filterEmoji("", 20));
 
-  handleSearchChange = (event) => {
-    this.setState({
-      filteredEmoji: filterEmoji(event.target.value, 20),
-    });
+  const handleSearchChange = (event) => {
+    setFilteredEmoji(filterEmoji(event.target.value, 20));
   };
 
-  render() {
-    return (
-      <div>
-        <Header />
-        <SearchInput textChange={this.handleSearchChange} />
-        <EmojiResults emojiData={this.state.filteredEmoji} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Header />
+      <SearchInput textChange={handleSearchChange} />
+      <EmojiResults emojiData={filteredEmoji} />
+    </div>
+  );
+};
+export default App;
