@@ -7,7 +7,7 @@ import filterEmoji from "../../helpers/filterEmoji";
 const App = () => {
   const [filteredEmoji, setFilteredEmoji] = useState(filterEmoji("", 20));
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = (event: any) => {
     setFilteredEmoji(filterEmoji(event.target.value, 20));
   };
 
