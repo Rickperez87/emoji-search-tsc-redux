@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import SearchInput from "../Searchinput";
+import SearchInput from "../Searchinput/index";
 import EmojiResults from "../EmojiResults";
 import filterEmoji from "../../helpers/filterEmoji";
 
 const App = () => {
   const [filteredEmoji, setFilteredEmoji] = useState(filterEmoji("", 20));
 
-  const handleSearchChange = (event: any) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilteredEmoji(filterEmoji(event.target.value, 20));
   };
 

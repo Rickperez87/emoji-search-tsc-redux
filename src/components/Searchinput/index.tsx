@@ -1,14 +1,12 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-
 import "./SearchInput.css";
 
-const SearchInput = ({ textChange }) => {
-  // static propTypes = {
-  //   textChange: PropTypes.func
-  // };
+interface Props {
+  textChange(event: React.ChangeEvent<HTMLInputElement>): void;
+}
 
-  const handleChange = (event) => {
+const SearchInput: React.FC<Props> = ({ textChange }) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     textChange(event);
   };
 
