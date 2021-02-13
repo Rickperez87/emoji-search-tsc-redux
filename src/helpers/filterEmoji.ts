@@ -1,8 +1,8 @@
 import emojiList from "./emojiList.json";
 
-export default function filterEmoji(searchText, maxResults) {
+export default function filterEmoji(searchText: string, maxResults: number) {
   return emojiList
-    .filter(emoji => {
+    .filter((emoji) => {
       if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
