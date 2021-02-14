@@ -8,7 +8,7 @@ const App = () => {
   const [filteredEmoji, setFilteredEmoji] = useState(filterEmoji("", 20));
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilteredEmoji(filterEmoji(event.target.value, 20));
+    setFilteredEmoji(filterEmoji(event.target.value));
   };
 
   return (
