@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <SearchInput textChange={handleSearchChange} />
+      <SearchInput /*textChange={handleSearchChange}*/ />
       <EmojiResults emojiData={filteredEmoji} />
     </div>
   );
