@@ -1,12 +1,11 @@
 import emojiList from "../helpers/emojiList.json";
-export const emojiListReducer = () => {
-  return emojiList;
-};
 
-export const filterEmojiReducer = (state: any = emojiList, action: any) => {
+const initialState = emojiList.slice(0, 20);
+
+export const filterEmojiReducer = (state: any = initialState, action: any) => {
   if (action.type === "FILTER_EMOJI") {
     const { text, maxResults } = action.payload;
-    return state
+    return emojiList
       .filter((emoji: any) => {
         if (emoji.title.toLowerCase().includes(text.toLowerCase())) {
           return true;

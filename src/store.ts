@@ -1,8 +1,7 @@
-import { emojiListReducer, filterEmojiReducer } from "./Reducers/reducers";
+import { filterEmojiReducer } from "./Reducers/reducers";
 import { createStore, combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  emojiList: emojiListReducer,
   filterEmoji: filterEmojiReducer,
 });
 
