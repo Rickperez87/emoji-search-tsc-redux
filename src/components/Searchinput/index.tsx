@@ -1,18 +1,23 @@
 import * as React from "react";
 import "./SearchInput.css";
 
-import { FilterEmoji } from "../../Actions/actions";
+import { filterEmojiAction } from "../../Actions/actions";
 import { connect } from "react-redux";
 
-interface Props {
-  // textChange(event: React.ChangeEvent<HTMLInputElement>): void;
-  filterEmoji(text: any, maxResults?: number): any;
+interface IFilterEmojiAction {
+  type: "FILTER_EMOJI";
+  payload: {
+    text: string;
+    maxResults?: number;
+  };
 }
 
-const SearchInput: React.FC<Props> = ({ filterEmoji }) => {
+type Props = any & IFilterEmojiAction;
+
+const SearchInput: React.FC<Props> = ({ filterEmojiAction }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // textChange(event);
-    filterEmoji(event.target.value);
+    filterEmojiAction(event.target.value);
   };
 
   return (
@@ -29,4 +34,6 @@ const mapStateToProps = (state: any) => {
   return { state };
 };
 
-export default connect(mapStateToProps, { FilterEmoji })(SearchInput);
+export default connect<any>(mapStateToProps, { filterEmojiAction })(
+  SearchInput
+);
