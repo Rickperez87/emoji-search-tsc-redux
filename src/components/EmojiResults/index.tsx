@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Clipboard from "clipboard";
 
 import EmojiResultRow from "../EmojiResultRow";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import "./EmojiResults.css";
 
 interface IEmojiData {
@@ -11,22 +11,20 @@ interface IEmojiData {
   keywords: string;
 }
 
-const EmojiResults: React.FC<{ emojiData: Array<IEmojiData>; state: any }> = ({
-  emojiData,
-  state,
-}) => {
+const EmojiResults: React.FC = () => {
   useEffect(() => {
     let clipboard = new Clipboard(".copy-to-clipboard");
-
     return () => {
       clipboard.destroy();
     };
   }, []);
 
+  const emojiData: Array<IEmojiData> = useSelector(
+    (state: any) => state.filterEmoji
+  );
   return (
     <div className="component-emoji-results">
-      {console.log(state)}
-      {emojiData.map((emojiData) => (
+      {emojiData.map((emojiData: any) => (
         <EmojiResultRow
           key={emojiData.title}
           symbol={emojiData.symbol}
@@ -37,9 +35,4 @@ const EmojiResults: React.FC<{ emojiData: Array<IEmojiData>; state: any }> = ({
   );
 };
 
-const mapStateToProps = (state: any) => {
-  console.log(state);
-  return { state };
-};
-
-export default connect(mapStateToProps)(EmojiResults);
+export default EmojiResults;
