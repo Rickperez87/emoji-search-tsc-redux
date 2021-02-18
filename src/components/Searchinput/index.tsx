@@ -16,7 +16,6 @@ type Props = any & IFilterEmojiAction;
 
 const SearchInput: React.FC<Props> = ({ filterEmojiAction }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // textChange(event);
     filterEmojiAction(event.target.value);
   };
 
@@ -30,7 +29,6 @@ const SearchInput: React.FC<Props> = ({ filterEmojiAction }) => {
 };
 
 const mapStateToProps = (state: any) => {
-  console.log(state);
   return { state };
 };
 

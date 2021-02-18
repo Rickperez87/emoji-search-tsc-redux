@@ -1,3 +1,5 @@
+import { FILTER_EMOJI } from "../ActionTypes";
+
 interface filterEmojiAction {
   type: "FILTER_EMOJI";
   payload: {
@@ -10,5 +12,5 @@ export const filterEmojiAction = <filterEmojiAction>(
   text: string,
   maxResults = 20
 ) => {
-  return { type: "FILTER_EMOJI", payload: { text, maxResults } };
+  return { type: FILTER_EMOJI, payload: { text, maxResults } };
 };
