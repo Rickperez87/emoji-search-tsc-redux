@@ -8,6 +8,8 @@ interface filterEmojiAction {
   };
 }
 
+export type Action = filterEmojiAction;
+
 export const filterEmojiAction = <filterEmojiAction>(
   text: string,
   maxResults = 20

@@ -1,4 +1,4 @@
-import { filterEmojiReducer } from "./Reducers/reducers";
+import { filterEmojiReducer } from "./Reducers";
 import { createStore, combineReducers } from "redux";
 
 const rootReducer = combineReducers({

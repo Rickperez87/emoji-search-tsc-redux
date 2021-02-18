@@ -1,13 +1,26 @@
-import emojiList from "../helpers/emojiList.json";
+import emojiList from "../../helpers/emojiList.json";
 import { FILTER_EMOJI } from "../ActionTypes";
+import { Action } from "../Actions";
+
+interface EmojiState extends Array<EmojiData> {}
+
+interface EmojiData {
+  title: string;
+  symbol: string;
+  keywords: string;
+}
+
 const initialState = emojiList.slice(0, 20);
 
-export const filterEmojiReducer = (state: any = initialState, action: any) => {
+export const filterEmojiReducer = (
+  state: EmojiState = initialState,
+  action: Action
+): EmojiState => {
   switch (action.type) {
     case FILTER_EMOJI: {
       const { text, maxResults } = action.payload;
       return emojiList
-        .filter((emoji: any) => {
+        .filter((emoji) => {
           if (emoji.title.toLowerCase().includes(text.toLowerCase())) {
             return true;
           }

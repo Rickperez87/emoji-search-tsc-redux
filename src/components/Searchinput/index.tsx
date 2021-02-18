@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./SearchInput.css";
 
-import { filterEmojiAction } from "../../Actions/actions";
+import { filterEmojiAction } from "../../state/Actions/";
 import { connect } from "react-redux";
 
 interface IFilterEmojiAction {
