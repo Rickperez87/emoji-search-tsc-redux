@@ -1,10 +1,8 @@
 import { FILTER_EMOJI } from "../ActionTypes";
-import { Action, FilterEmojiAction } from "../types";
-import { filterEmojiReducer } from "../Reducers";
 
-export const filterEmojiAction = <Action>(
-  text: React.ChangeEvent<HTMLInputElement>,
+export const filterEmojiAction = (
+  text: string,
   maxResults = 20
-) => {
+): { type: string; payload: { text: string; maxResults?: number } } => {
   return { type: FILTER_EMOJI, payload: { text, maxResults } };
 };

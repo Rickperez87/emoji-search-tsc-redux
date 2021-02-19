@@ -15,3 +15,12 @@ interface EmojiData {
   symbol: string;
   keywords: string;
 }
+export interface FilterEmojiActionCreator {
+  (text: string, maxNumber?: number): {
+    type: "FILTER_EMOJI";
+    payload: {
+      text: string;
+      maxResults?: number;
+    };
+  };
+}
