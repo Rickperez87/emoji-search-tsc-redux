@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import Clipboard from "clipboard";
+import { useSelector } from "react-redux";
 
 import EmojiResultRow from "../EmojiResultRow";
-import { useSelector } from "react-redux";
+import { EmojiState, EmojiData } from "../../state";
 import "./EmojiResults.css";
 
 interface IEmojiData {
@@ -20,11 +21,11 @@ const EmojiResults: React.FC = () => {
   }, []);
 
   const emojiData: Array<IEmojiData> = useSelector(
-    (state: any) => state.filterEmoji
+    (state: { filterEmoji: EmojiState }) => state.filterEmoji
   );
   return (
     <div className="component-emoji-results">
-      {emojiData.map((emojiData: any) => (
+      {emojiData.map((emojiData: EmojiData) => (
         <EmojiResultRow
           key={emojiData.title}
           symbol={emojiData.symbol}

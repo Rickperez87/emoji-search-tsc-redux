@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./EmojiResultRow.css";
 
 interface Props {
@@ -21,4 +22,5 @@ const EmojiResultsRow: React.FC<Props> = ({ title, symbol }) => {
     </div>
   );
 };
+
 export default EmojiResultsRow;

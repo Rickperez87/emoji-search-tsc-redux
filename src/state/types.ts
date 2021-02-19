@@ -10,7 +10,7 @@ export type Action = FilterEmojiAction;
 
 export interface EmojiState extends Array<EmojiData> {}
 
-interface EmojiData {
+export interface EmojiData {
   title: string;
   symbol: string;
   keywords: string;
