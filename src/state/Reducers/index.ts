@@ -1,14 +1,6 @@
 import emojiList from "../../helpers/emojiList.json";
 import { FILTER_EMOJI } from "../ActionTypes";
-import { Action } from "../Actions";
-
-interface EmojiState extends Array<EmojiData> {}
-
-interface EmojiData {
-  title: string;
-  symbol: string;
-  keywords: string;
-}
+import { Action, EmojiState } from "../types";
 
 const initialState = emojiList.slice(0, 20);
 

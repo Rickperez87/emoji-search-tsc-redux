@@ -2,19 +2,19 @@ import * as React from "react";
 import "./SearchInput.css";
 
 import { filterEmojiAction } from "../../state/";
-import { connect } from "react-redux";
+import { EmojiState, FilterEmojiAction } from "../../state";
+import { connect, ConnectedProps } from "react-redux";
 
-interface IFilterEmojiAction {
-  type: "FILTER_EMOJI";
-  payload: {
-    text: string;
-    maxResults?: number;
-  };
+//working on making this prop typed... So far I
+interface DispatchProps extends PropsFromRedux {
+  filterEmojiAction: <FilterEmojiAction>(
+    Event: React.ChangeEvent<HTMLInputElement>
+  ) => FilterEmojiAction;
 }
 
-type Props = any & IFilterEmojiAction;
+type PropsFromRedux = ConnectedProps<typeof connector>;
 
-const SearchInput: React.FC<Props> = ({ filterEmojiAction }) => {
+const SearchInput: React.FC<DispatchProps> = ({ filterEmojiAction }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     filterEmojiAction(event.target.value);
   };
@@ -28,10 +28,12 @@ const SearchInput: React.FC<Props> = ({ filterEmojiAction }) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: EmojiState) => {
   return { state };
 };
 
-export default connect<any>(mapStateToProps, { filterEmojiAction })(
-  SearchInput
-);
+const connector = connect(mapStateToProps, {
+  filterEmojiAction,
+});
+
+export default connector(SearchInput);
