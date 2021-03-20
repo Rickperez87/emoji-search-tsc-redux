@@ -1,5 +1,7 @@
 .component-search-input {
   border-bottom: 1px solid #ccc;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .component-search-input > div {

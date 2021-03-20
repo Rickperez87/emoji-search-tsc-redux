@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 import EmojiResultRow from "../EmojiResultRow";
 import { EmojiState, EmojiData } from "../../state";
-import "./EmojiResults.css";
 
 interface IEmojiData {
   title: string;
