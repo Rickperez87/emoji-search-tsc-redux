@@ -16,7 +16,8 @@ export const filterEmojiReducer = (
           if (emoji.title.toLowerCase().includes(text.toLowerCase())) {
             return true;
           }
-          if (emoji.keywords.includes(text)) {
+          console.log(text);
+          if (emoji.keywords.includes(text.toLowerCase())) {
             return true;
           }
           return false;
